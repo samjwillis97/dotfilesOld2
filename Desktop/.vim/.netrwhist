@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/home/sam/Documents/NewDotFiles'
-let g:netrw_dirhist_2='/home/sam/.config/polybar/scripts'
-let g:netrw_dirhist_1='/home/sam/.xmonad'
