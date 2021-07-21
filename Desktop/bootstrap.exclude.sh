@@ -1,3 +1,5 @@
+# https://github.com/ajmalsiddiqui/dotfiles/blob/master/bootstrap.exclude.sh
+
 # Symlink all dotfiles
 ## Ignore errors because files may already exist
 
