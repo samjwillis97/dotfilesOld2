@@ -3,7 +3,6 @@ syntax enable
 set t_Co=256
 let base16colorspace=256
 set bg=dark
-silent! colorscheme dracula
 
 " UI CONFIG
 set number
@@ -122,5 +121,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Collection of language packs (syntax, indent etc)
 Plug 'sheerun/vim-polyglot'
-
+" Dracula Colorscheme
+Plug 'dracula/vim', {'as':'dracula'}
 call plug#end()
+
+colorscheme dracula
