@@ -13,6 +13,7 @@ set wildmenu
 set lazyredraw
 set showmatch
 set encoding=utf-8
+set nocompatible
 
 " SWAP FILE MANAGEMENT
 set swapfile
@@ -50,6 +51,7 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+
 " reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
@@ -64,8 +66,26 @@ set shiftwidth=4
 set smarttab
 
 " FZF SEARCH
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  } }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " ALE
 nmap <silent> ]e <Plug>(ale_next_wrap)
@@ -119,6 +139,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 " FZF Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Collection of language packs (syntax, indent etc)
 Plug 'sheerun/vim-polyglot'
 " Dracula Colorscheme
