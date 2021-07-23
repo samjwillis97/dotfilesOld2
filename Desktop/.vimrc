@@ -58,15 +58,17 @@ if has("autocmd")
 endif
 
 " DEFAULT FILES
-set backspace=2
-" set backspace=indent,eol,start
+" set backspace=2
+set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
 
 " FZF SEARCH
+" Requires silver search and bat
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_OPTS = "--preview 'bat --theme Dracula --color=always --style=header,grid --line-range :300 {}'"
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  } }
 let g:fzf_colors =
