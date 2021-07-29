@@ -79,7 +79,7 @@ let g:fzf_colors =
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl+':     ['fg', 'Statement'],
   \ 'info':    ['bg', 'PreProc'],
-  \ 'border':  ['bg', 'Keyword'],
+  \ 'border':  ['fg', 'Keyword'],
   \ 'prompt':  ['fg', 'Conditional'],
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
@@ -124,7 +124,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 
 " Ale
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
+" AutoComplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " File Browser
 Plug 'preservim/nerdtree'
 " Git Plugin for NerdTree
@@ -146,6 +148,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 " Dracula Colorscheme
 Plug 'dracula/vim', {'as':'dracula'}
+" Arduino
+Plug 'stevearc/vim-arduino'
 call plug#end()
 
 colorscheme dracula
