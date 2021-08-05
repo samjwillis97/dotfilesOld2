@@ -87,6 +87,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " ALE
