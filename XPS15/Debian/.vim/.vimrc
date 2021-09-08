@@ -1,5 +1,73 @@
-" CoC Settings
+" reload with :so %
+
+" Minimum Settings
+syntax on
+set number
 set hidden
+set backspace=indent,eol,start
+filetype plugin indent on
+
+" Set Run Time Variable to be ~/.vim
+let $RTP=split(&runtimepath, ',')[0]
+
+" Set VIMRC
+let $RC="$HOME/.vim/vimrc"
+
+" COLORS
+set t_Co=256
+let base16colorspace=256
+set bg=dark
+
+" UI CONFIG
+set showcmd
+set cursorline
+set wildmenu
+set lazyredraw
+set showmatch
+set encoding=utf-8
+set nocompatible
+
+" SWAP FILE MANAGEMENT
+set swapfile
+set dir=/tmp
+
+" MAKE NUMBERING RELATIVE
+set relativenumber
+
+" SUDO FILES
+command! -nargs=0 Sw w !sudo tee % > /dev/null
+
+" SEARCHING
+set incsearch
+set hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
+
+" FOLDING
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+set foldmethod=indent
+
+" MOVEMENT
+nnoremap j gj
+nnoremap k gk
+
+" SPLIT NAVIGATIONS
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+" reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
+endif
+
+" CoC Settings
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -66,73 +134,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
-
-" COLORS
-syntax enable
-set t_Co=256
-let base16colorspace=256
-set bg=dark
-
-" UI CONFIG
-set number
-set showcmd
-set cursorline
-filetype indent on
-set wildmenu
-set lazyredraw
-set showmatch
-set encoding=utf-8
-set nocompatible
-
-" SWAP FILE MANAGEMENT
-set swapfile
-set dir=/tmp
-
-" MAKE NUMBERING RELATIVE
-set number
-set relativenumber
-
-" SUDO FILES
-command! -nargs=0 Sw w !sudo tee % > /dev/null
-
-" SEARCHING
-set incsearch
-set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
-
-" FOLDING
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-nnoremap <space> za
-set foldmethod=indent
-
-" MOVEMENT
-nnoremap j gj
-nnoremap k gk
-
-" SPLIT NAVIGATIONS
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set splitbelow
-set splitright
-
-
-" reopening a file
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
-endif
-
-" DEFAULT FILES
-" set backspace=2
-set backspace=indent,eol,start
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smarttab
 
 " FZF SEARCH
 " Requires silver search and bat
